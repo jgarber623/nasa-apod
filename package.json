@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "nasa-apod",
+  "scripts": {
+    "build": "eleventy --quiet",
+    "clean": "rm -rf public",
+    "prebuild": "npm run clean",
+    "prestart": "npm run clean",
+    "start": "eleventy --quiet --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
