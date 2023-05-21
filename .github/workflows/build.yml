@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     name: Build and publish to GitHub Pages
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
