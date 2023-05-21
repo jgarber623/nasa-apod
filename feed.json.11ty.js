@@ -15,7 +15,7 @@ module.exports = class {
           return {
             id: post.data.canonical_url,
             url: post.data.canonical_url,
-            title: post.title,
+            title: post.data.title,
             content_html: await this.renderFile('./_includes/figure.liquid', post),
             image: post.data.image_url,
             date_published: post.date
