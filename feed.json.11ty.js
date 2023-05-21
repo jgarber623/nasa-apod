@@ -5,18 +5,18 @@ module.exports = class {
     }
   }
 
-  render({ collections, permalink, site }) {
+  async render({ collections, permalink, site }) {
     const url = 'https://jgarber623.github.io/nasa-apod';
 
     const items =
       collections
         .post
-        .map(post => {
+        .map(async post => {
           return {
             id: post.data.canonical_url,
             url: post.data.canonical_url,
             title: post.title,
-            content_html: post.content.trim(),
+            content_html: await this.renderFile('./_includes/figure.liquid', post),
             image: post.data.image_url,
             date_published: post.date
           }
@@ -41,7 +41,7 @@ module.exports = class {
         }
       ],
       language: 'en-US',
-      items: items
+      items: await Promise.all(items)
     });
   }
 };
