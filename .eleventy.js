@@ -1,22 +1,9 @@
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.amendLibrary('md', markdown => {
-    return markdown.set({
-      breaks: true,
-      typographer: true
-    });
-  });
+  eleventyConfig.amendLibrary('md', require('./lib/libraries/markdown.js'));
 
-  eleventyConfig.setLiquidOptions({
-    globals: {
-      dates: {
-        display: '%B %e<sup>%q</sup>, %Y',
-        iso8601: '%Y-%m-%d',
-        iso68601_with_time_and_zone: '%Y-%m-%dT%H:%M:%S%:z'
-      }
-    }
-  });
+  eleventyConfig.setLiquidOptions(require('./lib/libraries/liquid.js'));
 
   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
