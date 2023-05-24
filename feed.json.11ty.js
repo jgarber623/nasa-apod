@@ -19,7 +19,7 @@ module.exports = class {
             id: post.data.canonical_url,
             url: post.data.canonical_url,
             title: mdLib.renderInline(post.data.title),
-            content_html: await this.renderFile('./_includes/figure.liquid', post),
+            content_html: await this.renderFile('./_includes/post.liquid', post),
             image: post.data.image_url,
             date_published: post.date
           }

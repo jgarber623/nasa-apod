@@ -1,0 +1,27 @@
+<article class="h-entry" id="post-{{ date | date: dates.iso8601 }}">
+  <div class="e-content">
+    <figure>
+      <img src="{{ data.image_url }}" alt="{{ data.title }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
+
+      <figcaption>
+        <p><a href="{{ data.canonical_url }}" rel="canonical" class="p-name u-uid u-url">{{ data.title }}</a> was published on <time class="dt-published" datetime="{{ date | date: dates.iso68601_with_time_and_zone }}">{{ date | date: dates.display }}</time>. A <a href="{{ data.hd_image_url }}">high resolution version</a> is available on <a href="https://apod.nasa.gov" rel="home">apod.nasa.gov</a>.</p>
+      </figcaption>
+    </figure>
+
+    <div id="post-{{ date | date: dates.iso8601 }}">{{ content }}</div>
+
+    <footer>
+      <hr>
+
+      <p>
+        <small>
+          <b>Image credit:</b> {{ data.credit }}
+          {%- if data.copyright -%}
+            <br>
+            <b>Copyright:</b> {{ data.copyright }}
+          {%- endif -%}
+        </small>
+      </p>
+    </footer>
+  </div>
+</article>
