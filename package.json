@@ -9,6 +9,9 @@
     "start": "eleventy --quiet --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.1",
+    "turndown": "^7.1.2"
   }
 }
