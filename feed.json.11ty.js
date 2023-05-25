@@ -11,6 +11,8 @@ module.exports = class {
     const items = await Promise.all(
       collections
         .post
+        .reverse()
+        .slice(0, 30)
         .map(async post => {
           // Use Eleventy's configured markdown-it instance.
           const mdLib = post.template._templateRender._engine.engineLib;
@@ -24,7 +26,6 @@ module.exports = class {
             date_published: post.date
           }
         })
-        .reverse()
     );
 
     return JSON.stringify({
