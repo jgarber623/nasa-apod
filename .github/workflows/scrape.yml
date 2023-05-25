@@ -1,0 +1,30 @@
+name: Scrape
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    name: Scrape NASA APOD API and Website
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+      - run: npm ci
+      - name: Run scraper scripts
+        run: node ./lib/scripts/scraper.mjs $(date +%F)
+      - name: Commit and push changed files
+        run: |
+          git diff
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'github-actions[bot]'
+          git add -A
+          git commit -m "🤖 Add new post for `date +%F`" || exit 0
+          git push
