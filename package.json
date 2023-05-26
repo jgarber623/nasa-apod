@@ -1,6 +1,9 @@
 {
   "private": true,
   "name": "nasa-apod",
+  "homepage": "https://github.com/jgarber623/nasa-apod",
+  "author": "Jason Garber <jason@sixtwothree.org> (https://sixtwothree.org)",
+  "repository": "github.com:jgarber623/nasa-apod",
   "scripts": {
     "build": "eleventy --quiet",
     "clean": "rm -rf public",
