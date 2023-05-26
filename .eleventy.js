@@ -3,8 +3,8 @@ const { EleventyRenderPlugin } = require('@11ty/eleventy');
 module.exports = function(eleventyConfig) {
   // Passthrough File Copy
   eleventyConfig
-    .addPassthroughCopy('./assets')
-    .addPassthroughCopy('./favicon.ico');
+    .addPassthroughCopy('./src/assets')
+    .addPassthroughCopy('./src/favicon.ico');
 
   // Libraries
   eleventyConfig.amendLibrary('md', require('./lib/libraries/markdown.js'));
@@ -12,4 +12,10 @@ module.exports = function(eleventyConfig) {
 
   // Plugins
   eleventyConfig.addPlugin(EleventyRenderPlugin);
+
+  return {
+    dir: {
+      input: './src'
+    }
+  }
 };
