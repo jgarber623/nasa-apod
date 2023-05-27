@@ -4,7 +4,8 @@ module.exports = function(eleventyConfig) {
   // Passthrough File Copy
   eleventyConfig
     .addPassthroughCopy('./src/assets')
-    .addPassthroughCopy('./src/favicon.ico');
+    .addPassthroughCopy('./src/favicon.ico')
+    .addPassthroughCopy('./src/manifest.webmanifest');
 
   // Libraries
   eleventyConfig.amendLibrary('md', require('./lib/libraries/markdown.js'));
