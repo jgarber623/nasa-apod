@@ -1,11 +1,16 @@
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 
 module.exports = function(eleventyConfig) {
+  // Global Data
+  eleventyConfig.addGlobalData('app', require('./src/manifest.webmanifest.json'));
+
   // Passthrough File Copy
   eleventyConfig
+    .addPassthroughCopy('./src/*.{ico,txt}')
     .addPassthroughCopy('./src/assets')
-    .addPassthroughCopy('./src/favicon.ico')
-    .addPassthroughCopy('./src/manifest.webmanifest');
+    .addPassthroughCopy({
+      './src/manifest.webmanifest.json': 'manifest.webmanifest'
+    });
 
   // Libraries
   eleventyConfig.amendLibrary('md', require('./lib/libraries/markdown.js'));

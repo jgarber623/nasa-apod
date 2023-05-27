@@ -5,9 +5,7 @@ module.exports = class {
     };
   }
 
-  async render({ collections, permalink, site }) {
-    const url = 'https://jgarber623.github.io/nasa-apod';
-
+  async render({ apod, app, collections, permalink }) {
     const items = await Promise.all(
       collections
         .post
@@ -30,23 +28,14 @@ module.exports = class {
 
     return JSON.stringify({
       version: 'https://jsonfeed.org/version/1.1',
-      title: 'NASA Astronomy Picture of the Day',
-      home_page_url: 'https://apod.nasa.gov',
-      feed_url: `${url}${permalink}`,
-      description: 'Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.',
-      icon: `${url}/assets/images/icon-512x512.png`,
-      favicon: `${url}/assets/images/icon-128x128.png`,
-      authors: [
-        {
-          name: 'Robert Nemiroff',
-          url: 'https://www.mtu.edu/physics/department/faculty/nemiroff/'
-        },
-        {
-          name: 'Jerry Bonnell',
-          url: 'https://apod.nasa.gov/htmltest/jbonnell/www/bonnell.html'
-        }
-      ],
-      language: 'en-US',
+      title: app.name,
+      home_page_url: apod.url,
+      feed_url: `${app.start_url}${permalink}`,
+      description: app.description,
+      icon: `${app.start_url}${app.icons[1].src}`,
+      favicon: `${app.start_url}${app.icons[0].src}`,
+      authors: apod.authors,
+      language: app.lang,
       items: items
     });
   }
