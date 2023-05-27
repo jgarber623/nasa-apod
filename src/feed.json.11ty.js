@@ -2,7 +2,7 @@ module.exports = class {
   data() {
     return {
       permalink: '/feed.json'
-    }
+    };
   }
 
   async render({ collections, permalink, site }) {
@@ -24,7 +24,7 @@ module.exports = class {
             content_html: await this.renderFile('./src/_includes/post.liquid', post),
             image: post.data.image_url,
             date_published: post.date
-          }
+          };
         })
     );
 
