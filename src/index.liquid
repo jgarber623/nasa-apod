@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ app.name }}</title>
+
+  <link rel="alternate" href="/feed.json" title="JSON Feed v1.1" type="application/feed+json">
+  <link rel="apple-touch-icon" href="/{{ app.icons[1].src }}">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <meta name="apple-mobile-web-app-title" content="{{ app.short_name }}">
+  <meta name="application-name" content="{{ app.short_name }}">
+  <meta name="description" content="{{ app.description }}">
+  <meta name="theme-color" content="{{ app.theme_color }}">
+
+  <meta property="og:author_name" content="{{ pkg.author.name }}">
+  <meta property="og:author_url" content="{{ pkg.author.url }}">
+  <meta property="og:description" content="{{ app.description }}">
+  <meta property="og:title" content="{{ app.name }}">
+  <meta property="og:url" content="{{ app.start_url }}">
+</head>
+<body>
+
+  <header role="banner">
+    <h1>{{ app.name }}</h1>
+  </header>
+
+  <main role="main">
+    <a href="/feed.json" rel="alternate" type="application/feed+json">JSON Feed v1.1</a>
+  </main>
+
+  <footer role="contentinfo">
+    <p>Source code available on <a href="{{ pkg.repository.url }}" rel="source">GitHub</a>.</p>
+  </footer>
+
+</body>
+</html>
