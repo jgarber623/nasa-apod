@@ -4,12 +4,12 @@
   "description": "Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.",
   "icons": [
     {
-      "src": "/assets/images/icon-128x128.png",
+      "src": "assets/images/icon-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "/assets/images/icon-512x512.png",
+      "src": "assets/images/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
@@ -17,6 +17,6 @@
   "lang": "en-US",
   "name": "NASA Astronomy Picture of the Day",
   "short_name": "APOD",
-  "start_url": "https://jgarber623.github.io/nasa-apod",
+  "start_url": "https://jgarber623.github.io/nasa-apod/",
   "theme_color": "#f4f4ff"
 }

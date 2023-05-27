@@ -30,10 +30,10 @@ module.exports = class {
       version: 'https://jsonfeed.org/version/1.1',
       title: app.name,
       home_page_url: apod.url,
-      feed_url: `${app.start_url}${permalink}`,
+      feed_url: this.htmlBaseUrl(permalink, app.start_url),
       description: app.description,
-      icon: `${app.start_url}${app.icons[1].src}`,
-      favicon: `${app.start_url}${app.icons[0].src}`,
+      icon: this.htmlBaseUrl(app.icons[1].src, app.start_url),
+      favicon: this.htmlBaseUrl(app.icons[0].src, app.start_url),
       authors: apod.authors,
       language: app.lang,
       items: items

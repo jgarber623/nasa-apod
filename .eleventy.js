@@ -1,4 +1,4 @@
-const { EleventyRenderPlugin } = require('@11ty/eleventy');
+const { EleventyHtmlBasePlugin, EleventyRenderPlugin } = require('@11ty/eleventy');
 
 module.exports = function(eleventyConfig) {
   // Global Data
@@ -6,8 +6,8 @@ module.exports = function(eleventyConfig) {
 
   // Passthrough File Copy
   eleventyConfig
-    .addPassthroughCopy('./src/*.{ico,txt}')
     .addPassthroughCopy('./src/assets')
+    .addPassthroughCopy('./src/favicon.ico')
     .addPassthroughCopy({
       './src/manifest.webmanifest.json': 'manifest.webmanifest'
     });
@@ -17,11 +17,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLiquidOptions(require('./lib/libraries/liquid.js'));
 
   // Plugins
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
   return {
     dir: {
       input: './src'
-    }
+    },
+    pathPrefix: '/nasa-apod/'
   };
 };
