@@ -6,6 +6,7 @@
 
   <title>{{ app.name }}</title>
 
+  <link rel="alternate" href="/feed.atom" title="Atom v1.0" type="application/atom+xml">
   <link rel="alternate" href="/feed.json" title="JSON Feed v1.1" type="application/feed+json">
   <link rel="apple-touch-icon" href="/{{ app.icons[1].src }}">
   <link rel="manifest" href="/manifest.webmanifest">
@@ -29,7 +30,10 @@
   </header>
 
   <main role="main">
-    <a href="/feed.json" rel="alternate" type="application/feed+json">JSON Feed v1.1</a>
+    <ul>
+      <li><a href="/feed.atom" rel="alternate" type="application/atom+xml">Atom v1.0</li>
+      <li><a href="/feed.json" rel="alternate" type="application/feed+json">JSON Feed v1.1</a></li>
+    </ul>
   </main>
 
   <footer role="contentinfo">

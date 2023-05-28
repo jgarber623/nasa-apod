@@ -10,6 +10,7 @@ This project uses a combination of [NASA's APOD API](https://api.nasa.gov) and s
 
 Add any of the following URLs to your preferred feed reader:
 
+- [Atom v1.0](https://jgarber623.github.io/nasa-apod/feed.atom)
 - [JSON Feed v1.1](https://jgarber623.github.io/nasa-apod/feed.json)
 
 ## License
