@@ -13,13 +13,10 @@ module.exports = class {
         .reverse()
         .slice(0, 30)
         .map(async post => {
-          // Use Eleventy's configured markdown-it instance.
-          const mdLib = post.template._templateRender._engine.engineLib;
-
           return {
             id: post.data.canonical_url,
             url: post.data.canonical_url,
-            title: mdLib.renderInline(post.data.title),
+            title: this.markdown(post.data.title, 'inline'),
             content_html: await this.renderFile('./src/_includes/post.liquid', post),
             image: post.data.image_url,
             date_published: post.date

@@ -21,7 +21,7 @@ permalink: "/feed.atom"
   {%- for post in collections.post | head(30) %}
   <entry>
     <id>{{ post.data.canonical_url }}</id>
-    <title>{{ post.data.title }}</title>
+    <title>{{ post.data.title | markdown: "inline" }}</title>
     <updated>{{ post.date | date }}</updated>
     <content type="html">
       <![CDATA[{% renderFile "./src/_includes/post.liquid", post %}]]>
