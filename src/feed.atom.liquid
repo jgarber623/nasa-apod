@@ -6,7 +6,7 @@ permalink: "/feed.atom"
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>{{ permalink | htmlBaseUrl: app.start_url }}</id>
   <title>{{ app.name }}</title>
-  <updated>{{ "now" | date: dates.iso68601_with_time_and_zone }}</updated>
+  <updated>{{ "now" | date }}</updated>
   {%- for author in apod.authors %}
   <author>
     <name>{{ author.name }}</name>
@@ -22,7 +22,7 @@ permalink: "/feed.atom"
   <entry>
     <id>{{ post.data.canonical_url }}</id>
     <title>{{ post.data.title }}</title>
-    <updated>{{ post.date | date: dates.iso68601_with_time_and_zone }}</updated>
+    <updated>{{ post.date | date }}</updated>
     <content type="html">
       <![CDATA[{% renderFile "./src/_includes/post.liquid", post %}]]>
     </content>
