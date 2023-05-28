@@ -8,8 +8,8 @@
     "url": "https://sixtwothree.org"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/jgarber623/nasa-apod"
+    "type": "git",
+    "url": "https://github.com/jgarber623/nasa-apod"
   },
   "scripts": {
     "build": "eleventy --quiet",
