@@ -1,6 +1,7 @@
 module.exports = class {
   data() {
     return {
+      eleventyExcludeFromCollections: true,
       permalink: '/feed.json'
     };
   }
