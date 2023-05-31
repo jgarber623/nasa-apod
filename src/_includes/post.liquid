@@ -1,7 +1,13 @@
 <article class="h-entry" id="post-{{ date | date: dates.iso8601 }}">
   <div class="e-content">
     <figure>
+      {%- if data.image_url contains "youtube.com" %}
+      <div aria-details="post-{{ date | date: dates.iso8601 }}">
+        {% youtube_embed data.image_url %}
+      </div>
+      {%- else %}
       <img src="{{ data.image_url }}" alt="{{ data.title }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
+      {%- endif %}
 
       <figcaption>
         <p><b>Credit and <a href="https://apod.nasa.gov/apod/lib/about_apod.html#srapply">copyright</a>:</b> {{ data.credit }}</p>

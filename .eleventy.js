@@ -19,6 +19,9 @@ module.exports = function(eleventyConfig) {
   // Filters
   eleventyConfig.addFilter('markdown', require('./lib/filters/markdown.js'));
 
+  // Shortcodes
+  eleventyConfig.addAsyncShortcode('youtube_embed', require('./lib/shortcodes/youtube_embed.js'));
+
   // Plugins
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
