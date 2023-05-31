@@ -1,14 +1,14 @@
 <article class="h-entry" id="post-{{ date | date: dates.iso8601 }}">
-  <figure>
-    <img src="{{ data.image_url }}" alt="{{ data.title }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
+  <div class="e-content">
+    <figure>
+      <img src="{{ data.image_url }}" alt="{{ data.title }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
 
-    <figcaption>
-      <p><b>Credit and <a href="https://apod.nasa.gov/apod/lib/about_apod.html#srapply">copyright</a>:</b> {{ data.credit }}</p>
-    </figcaption>
-  </figure>
+      <figcaption>
+        <p><b>Credit and <a href="https://apod.nasa.gov/apod/lib/about_apod.html#srapply">copyright</a>:</b> {{ data.credit }}</p>
+      </figcaption>
+    </figure>
 
-  <div class="e-content" id="post-{{ date | date: dates.iso8601 }}">
-    {{ content }}
+    <div id="post-{{ date | date: dates.iso8601 }}">{{ content }}</div>
   </div>
 
   <hr>
