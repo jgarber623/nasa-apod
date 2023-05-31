@@ -22,23 +22,34 @@
   <meta property="og:description" content="{{ app.description }}">
   <meta property="og:title" content="{{ app.name }}">
   <meta property="og:url" content="{{ app.start_url }}">
+
+  <style>
+    html { background-color: {{ app.theme_color }}; }
+    body { margin: 2rem; }
+    .wrapper { margin: 0 auto; max-width: 48rem; }
+  </style>
 </head>
 <body>
 
-  <header role="banner">
-    <h1>{{ app.name }}</h1>
-  </header>
+  <div class="wrapper">
+    <header role="banner">
+      <h1>{{ app.name }}</h1>
+    </header>
 
-  <main role="main">
-    <ul>
-      <li><a href="/feed.atom" rel="alternate" type="application/atom+xml">Atom v1.0</li>
-      <li><a href="/feed.json" rel="alternate" type="application/feed+json">JSON Feed v1.1</a></li>
-    </ul>
-  </main>
+    <main role="main">
+      <p>Add any of the following URLs to your preferred feed reader:</p>
+      <ul>
+        <li><a href="/feed.atom" rel="alternate" type="application/atom+xml">Atom v1.0</li>
+        <li><a href="/feed.json" rel="alternate" type="application/feed+json">JSON Feed v1.1</a></li>
+      </ul>
+    </main>
 
-  <footer role="contentinfo">
-    <p>Source code available on <a href="{{ pkg.repository.url }}" rel="source">GitHub</a>.</p>
-  </footer>
+    <hr>
+
+    <footer role="contentinfo">
+      <p>Source code available on <a href="{{ pkg.repository.url }}" rel="source">GitHub</a>.</p>
+    </footer>
+  </div>
 
 </body>
 </html>
