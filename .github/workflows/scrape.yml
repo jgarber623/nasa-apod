@@ -19,7 +19,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Run scraper scripts
-        run: node ./lib/scripts/scraper.mjs $(date +%F)
+        run: node ./lib/scripts/scraper.js $(date +%F)
       - name: Commit and push changed files
         run: |
           git diff
