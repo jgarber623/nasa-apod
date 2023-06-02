@@ -10,7 +10,7 @@
       {%- endif %}
 
       <figcaption>
-        <p><b>Credit:</b> {{ data.credit }}</p>
+        <p><b>Credit:</b> {{ data.credit | markdown: "inline" }}</p>
       </figcaption>
     </figure>
 
