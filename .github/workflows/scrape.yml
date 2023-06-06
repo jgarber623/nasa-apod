@@ -7,7 +7,7 @@ on:
 
 jobs:
   scrape:
-    name: Scrape NASA APOD API and Website
+    name: Scrape NASA APOD website
     permissions:
       contents: write
     runs-on: ubuntu-latest
