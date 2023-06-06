@@ -2,5 +2,8 @@
   "extends": "@jgarber/eslint-config/eleventy",
   "env": {
     "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 11
   }
 }
