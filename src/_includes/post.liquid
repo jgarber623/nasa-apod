@@ -1,12 +1,12 @@
 <article class="h-entry" id="post-{{ date | date: dates.iso8601 }}">
   <div class="e-content">
     <figure>
-      {%- if data.image_url contains "youtube.com" %}
+      {%- if data.imageUrl contains "youtube.com" %}
       <div aria-details="post-{{ date | date: dates.iso8601 }}">
-        {% youtube_embed data.image_url %}
+        {% youtube_embed data.imageUrl %}
       </div>
       {%- else %}
-      <img src="{{ data.image_url }}" alt="{{ data.image_alt }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
+      <img src="{{ data.imageUrl }}" alt="{{ data.imageAlt }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
       {%- endif %}
 
       <figcaption>
@@ -22,9 +22,9 @@
   <footer>
     <p>
       <small>
-        <a href="{{ data.canonical_url }}" rel="canonical" class="p-name u-uid u-url">{{ data.title }}</a> was published on <time class="dt-published" datetime="{{ date | date }}">{{ date | date: dates.display }}</time>.
-        {%- if data.hd_image_url %}
-        A <a href="{{ data.hd_image_url }}">high resolution version</a> is available on <a href="https://apod.nasa.gov" rel="home">apod.nasa.gov</a>.
+        <a href="{{ data.canonicalUrl }}" rel="canonical" class="p-name u-uid u-url">{{ data.title }}</a> was published on <time class="dt-published" datetime="{{ date | date }}">{{ date | date: dates.display }}</time>.
+        {%- if data.hdImageUrl %}
+        A <a href="{{ data.hdImageUrl }}">high resolution version</a> is available on <a href="https://apod.nasa.gov" rel="home">apod.nasa.gov</a>.
         {%- endif %}
       </small>
     </p>
