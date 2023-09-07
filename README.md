@@ -1,5 +1,8 @@
 # nasa-apod
 
+[![Build](https://img.shields.io/github/actions/workflow/status/jgarber623/nasa-apod/build.yml?branch=main&logo=github&style=for-the-badge)](https://github.com/jgarber623/nasa-apod/actions/workflows/build.yml)
+[![Scrape](https://img.shields.io/github/actions/workflow/status/jgarber623/nasa-apod/scrape.yml?branch=main&label=Scrape&logo=github&style=for-the-badge)](https://github.com/jgarber623/nasa-apod/actions/workflows/scrape.yml)
+
 Providing a fuller feed of content from NASA's [Astronomy Picture of the Day](https://apod.nasa.gov/apod/astropix.html) (APOD) website.
 
 I _love_ the APOD website, but [the official RSS feed](https://apod.nasa.gov/apod.rss) doesn't do it for me. A tiny image. The briefest of truncated text.
