@@ -28,10 +28,3 @@ jobs:
           git add -A
           git commit -m "🤖 Add new post for `date +%F`" || exit 0
           git push
-  build:
-    name: Build
-    permissions:
-      id-token: write
-      pages: write
-    needs: scrape
-    uses: ./.github/workflows/build.yml
