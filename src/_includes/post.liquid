@@ -6,7 +6,7 @@
         {% youtube_embed data.imageUrl %}
       </div>
       {%- else %}
-      <img src="{{ data.imageUrl }}" alt="{{ data.imageAlt }}" aria-details="post-{{ date | date: dates.iso8601 }}" class="u-photo">
+      <img src="{{ data.imageUrl }}" alt="{{ data.imageAlt }}" aria-details="post-content-{{ date | date: dates.iso8601 }}" class="u-photo">
       {%- endif %}
 
       <figcaption>
@@ -14,7 +14,7 @@
       </figcaption>
     </figure>
 
-    <div id="post-{{ date | date: dates.iso8601 }}">{{ content }}</div>
+    <div id="post-content-{{ date | date: dates.iso8601 }}">{{ content }}</div>
   </div>
 
   <hr>
