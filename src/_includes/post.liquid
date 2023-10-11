@@ -10,7 +10,11 @@
       {%- endif %}
 
       <figcaption>
-        <p><b>Credit:</b> {{ data.credit | markdown: "inline" }}</p>
+        <p>
+          {% for credit in data.credit -%}
+            {{ credit | markdown: "inline" }}{% unless forloop.last %}<br>{% endunless %}
+          {% endfor -%}
+        </p>
       </figcaption>
     </figure>
 
