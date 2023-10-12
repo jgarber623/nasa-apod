@@ -8,5 +8,13 @@ module.exports = [
       'unicorn/better-regex': 'off',
       'unicorn/filename-case': 'off'
     }
+  },
+  {
+    files: ['lib/**/*.js'],
+    languageOptions: {
+      globals: {
+        fetch: 'readonly'
+      }
+    }
   }
 ];
