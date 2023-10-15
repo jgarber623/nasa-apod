@@ -5,8 +5,7 @@ module.exports = [
   {
     files: ['**/*.js'],
     rules: {
-      'unicorn/better-regex': 'off',
-      'unicorn/filename-case': 'off'
+      'unicorn/better-regex': 'off'
     }
   },
   {
