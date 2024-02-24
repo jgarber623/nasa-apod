@@ -1,35 +1,35 @@
-const { EleventyHtmlBasePlugin, EleventyRenderPlugin } = require('@11ty/eleventy');
+const { EleventyHtmlBasePlugin, EleventyRenderPlugin } = require("@11ty/eleventy");
 
 module.exports = function(eleventyConfig) {
   // Front Matter Data
-  eleventyConfig.setFrontMatterParsingOptions({ language: 'json' });
+  eleventyConfig.setFrontMatterParsingOptions({ language: "json" });
 
   // Global Data
-  eleventyConfig.addGlobalData('app', require('./src/manifest.webmanifest.json'));
+  eleventyConfig.addGlobalData("app", require("./src/manifest.webmanifest.json"));
 
   // Passthrough File Copy
   eleventyConfig
-    .addPassthroughCopy('./src/assets')
-    .addPassthroughCopy('./src/favicon.ico')
+    .addPassthroughCopy("./src/assets")
+    .addPassthroughCopy("./src/favicon.ico")
     .addPassthroughCopy({
-      './src/manifest.webmanifest.json': 'manifest.webmanifest'
+      "./src/manifest.webmanifest.json": "manifest.webmanifest",
     });
 
   // Libraries
-  eleventyConfig.setLiquidOptions(require('./lib/libraries/liquid.js'));
+  eleventyConfig.setLiquidOptions(require("./lib/libraries/liquid.js"));
 
   // Shortcodes
-  eleventyConfig.addAsyncShortcode('youtube_embed', require('./lib/shortcodes/youtube_embed.js'));
+  eleventyConfig.addAsyncShortcode("youtube_embed", require("./lib/shortcodes/youtube_embed.js"));
 
   // Plugins
-  eleventyConfig.addPlugin(require('@jgarber/eleventy-plugin-markdown'));
+  eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-markdown"));
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
   return {
     dir: {
-      input: './src'
+      input: "./src",
     },
-    pathPrefix: '/nasa-apod/'
+    pathPrefix: "/nasa-apod/",
   };
 };
