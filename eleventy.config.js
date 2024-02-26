@@ -15,13 +15,19 @@ module.exports = function(eleventyConfig) {
       "./src/manifest.webmanifest.json": "manifest.webmanifest",
     });
 
-  // Libraries
-  eleventyConfig.setLiquidOptions(require("./lib/libraries/liquid.js"));
-
   // Shortcodes
   eleventyConfig.addAsyncShortcode("youtube_embed", require("./lib/shortcodes/youtube_embed.js"));
 
   // Plugins
+  eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-liquid"), {
+    globals: {
+      dates: {
+        display: "%B %e<sup>%q</sup>, %Y",
+        iso8601: "%Y-%m-%d",
+      },
+    },
+  });
+
   eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-markdown"));
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
