@@ -1,11 +1,18 @@
-const { EleventyHtmlBasePlugin, EleventyRenderPlugin } = require("@11ty/eleventy");
+import { EleventyHtmlBasePlugin, EleventyRenderPlugin } from "@11ty/eleventy";
 
-module.exports = function(eleventyConfig) {
+import eleventyPluginLiquid from "@jgarber/eleventy-plugin-liquid";
+import eleventyPluginMarkdown from "@jgarber/eleventy-plugin-markdown";
+
+import youtubeEmbedShortcode from "./lib/shortcodes/youtube_embed.js";
+
+import manifest from "./src/manifest.webmanifest.json" with { type: "json" };
+
+export default function(eleventyConfig) {
   // Front Matter Data
   eleventyConfig.setFrontMatterParsingOptions({ language: "json" });
 
   // Global Data
-  eleventyConfig.addGlobalData("app", require("./src/manifest.webmanifest.json"));
+  eleventyConfig.addGlobalData("app", manifest);
 
   // Passthrough File Copy
   eleventyConfig
@@ -16,10 +23,10 @@ module.exports = function(eleventyConfig) {
     });
 
   // Shortcodes
-  eleventyConfig.addAsyncShortcode("youtube_embed", require("./lib/shortcodes/youtube_embed.js"));
+  eleventyConfig.addAsyncShortcode("youtube_embed", youtubeEmbedShortcode);
 
   // Plugins
-  eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-liquid"), {
+  eleventyConfig.addPlugin(eleventyPluginLiquid, {
     globals: {
       dates: {
         display: "%B %e<sup>%q</sup>, %Y",
@@ -28,14 +35,14 @@ module.exports = function(eleventyConfig) {
     },
   });
 
-  eleventyConfig.addPlugin(require("@jgarber/eleventy-plugin-markdown"));
+  eleventyConfig.addPlugin(eleventyPluginMarkdown);
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
+}
 
-  return {
-    dir: {
-      input: "./src",
-    },
-    pathPrefix: "/nasa-apod/",
-  };
+export const config = {
+  dir: {
+    input: "./src",
+  },
+  pathPrefix: "/nasa-apod/",
 };

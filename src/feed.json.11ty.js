@@ -1,4 +1,4 @@
-module.exports = class {
+export default class {
   data() {
     return {
       eleventyExcludeFromCollections: true,
@@ -41,4 +41,4 @@ module.exports = class {
     });
     /* eslint-enable sort-keys */
   }
-};
+}
