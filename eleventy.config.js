@@ -19,7 +19,7 @@ export default function(eleventyConfig) {
     .addPassthroughCopy("./src/assets")
     .addPassthroughCopy("./src/*.ico")
     .addPassthroughCopy({
-      "./src/manifest.webmanifest.json": "manifest.webmanifest"
+      "./src/manifest.webmanifest.json": "manifest.webmanifest",
     });
 
   // Shortcodes
